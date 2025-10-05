@@ -13,8 +13,6 @@ services:
       - ./data:/data
     environment:
       CLUSTER_NAME: test
-    env_file:
-      - ./hadoop.env
     networks:
       - hadoop
 
@@ -26,8 +24,6 @@ services:
       - hadoop_datanode1:/hadoop/dfs/data
     environment:
       SERVICE_PRECONDITION: "namenode:9870"
-    env_file:
-      - ./hadoop.env
     networks:
       - hadoop
 
@@ -39,8 +35,6 @@ services:
       - hadoop_datanode2:/hadoop/dfs/data
     environment:
       SERVICE_PRECONDITION: "namenode:9870"
-    env_file:
-      - ./hadoop.env
     networks:
       - hadoop
 
@@ -52,8 +46,6 @@ services:
       - hadoop_datanode3:/hadoop/dfs/data
     environment:
       SERVICE_PRECONDITION: "namenode:9870"
-    env_file:
-      - ./hadoop.env
     networks:
       - hadoop
 
@@ -63,8 +55,6 @@ services:
     restart: always
     environment:
       SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode1:9864 datanode2:9864 datanode3:9864"
-    env_file:
-      - ./hadoop.env
     networks:
       - hadoop
 
@@ -74,8 +64,6 @@ services:
     restart: always
     environment:
       SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode1:9864 datanode2:9864 datanode3:9864 resourcemanager:8088"
-    env_file:
-      - ./hadoop.env
     networks:
       - hadoop
 
@@ -85,8 +73,6 @@ services:
     restart: always
     environment:
       SERVICE_PRECONDITION: "namenode:9000 namenode:9870 datanode1:9864 datanode2:9864 datanode3:9864 resourcemanager:8088"
-    env_file:
-      - ./hadoop.env
     volumes:
       - hadoop_historyserver:/hadoop/yarn/timeline
     networks:
