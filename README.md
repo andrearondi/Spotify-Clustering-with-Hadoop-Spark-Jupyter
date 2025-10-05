@@ -11,6 +11,8 @@ Make sure you have the following installed:
 - [Git](https://git-scm.com/)
 - Terminal (Command Prompt, PowerShell, Terminal.app, iTerm, etc.)
 
+Create a Docker account and make sure to complete the email verification step.
+
 ---
 
 ## 🔧 Setup
@@ -41,13 +43,20 @@ lsof -i :8080
 If no output is printed, then the port is free and not being used by any process.
 If a port is in use, change the left side of the mapping in docker-compose.yml (e.g. use 8890:8888 for Jupyter).
 
-### 3. Start the Cluster
+### 3. Start Docker Desktop
+Find Docker Desktop App, launch it and verify that it is running with:
+```bash
+docker info
+```
+If it prints a bunch of info about the Docker system, you can move on.
+
+### 4. Start the Cluster
 
 ```bash
 docker-compose up -d
 ```
 
-### 4. Verify Network & Namenode
+### 5. Verify Network & Namenode
 Make sure all services are running and the custom Docker network is created:
 
 ```bash
@@ -55,7 +64,7 @@ docker network ls
 docker ps
 ```
 
-### 5. Enter the Jupyter container:
+### 6. Enter the Jupyter container:
 
 ```bash
 docker exec -it jupyter bash
@@ -65,6 +74,7 @@ From there, you can test connection to Namenode:
 ```bash
 curl http://namenode:9870
 ```
+Once you are done, you can exit the Jupyter container and proceed with the next step (just type "exit")
 
 ---
 
