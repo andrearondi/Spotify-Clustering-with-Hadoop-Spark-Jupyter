@@ -98,21 +98,25 @@ Check that it’s in HDFS:
 hdfs dfs -ls /spotify
 ```
 
+Now type 'exit'
+
 ---
 
 ## 📓 Access Jupyter Notebook
 
-Open Jupyter in your browser:
-
-```
-http://localhost:8888
-```
-
-If needed, get the token:
+Get the Jupyter token by typing:
 
 ```bash
 docker logs jupyter 2>&1 | grep token
 ```
+
+Some urls will appear: they contain '?token=' followed by the actual token value. 
+Copy that value, open your browser, and go to:
+
+```
+http://localhost:8889
+```
+By pasting the token you will access Jupyter Notebook.
 
 The notebook files are in the notebooks/ folder.
 
