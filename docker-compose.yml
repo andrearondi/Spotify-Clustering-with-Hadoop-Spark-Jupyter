@@ -12,8 +12,6 @@ services:
       - hadoop_namenode:/hadoop/dfs/name
     environment:
       CLUSTER_NAME: test
-    env_file:
-      - ./hadoop.env
     networks:
       - hadoop
 

@@ -38,6 +38,7 @@ lsof -i :9870
 lsof -i :8080
 ```
 
+If no output is printed, then the port is free and not being used by any process.
 If a port is in use, change the left side of the mapping in docker-compose.yml (e.g. use 8890:8888 for Jupyter).
 
 ### 3. Start the Cluster
