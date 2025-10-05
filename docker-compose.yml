@@ -78,16 +78,17 @@ services:
     networks:
       - hadoop
 
+
   spark:
-    image: apache/spark:3.5.0
+    image: bitnami/spark:3.5.0
     container_name: spark
     restart: always
     ports:
-      - "8080:8080"
-      - "7077:7077"
+      - "8080:8080"   # Spark Master UI
+      - "7077:7077"   # Spark Master RPC
     environment:
       SPARK_MODE: master
-      HADOOP_CONF_DIR: /opt/hadoop/etc/hadoop
+      SPARK_NO_DAEMONIZE: "yes"   # keep process in foreground so logs go to stdout
     networks:
       - hadoop
     depends_on:
